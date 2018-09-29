@@ -125,8 +125,8 @@ int main() {
           double dt = .1;
           const double Lf = 2.67;
 
-          double x = v * cos(psi) * dt;
-          double y = 0;//v * sin(psi) * dt;
+          double x = v * dt;
+          double y = 0;
           double psi_delay = - v/Lf * steer_value * dt;
           double v_delay = v + throttle_value * dt;
           double cte_delay = cte + v * sin(epsi) * dt;

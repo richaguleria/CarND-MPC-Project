@@ -28,7 +28,7 @@ size_t cte_start = v_start + N; // 10 cte
 size_t epsi_start = cte_start + N; // 10 epsi
 size_t delta_start = epsi_start + N; //10 delta
 size_t a_start = delta_start + N - 1; //9 delta
-double ref_v = 65; 
+double ref_v = 70; 
 class FG_eval {
  public:
   // Fitted polynomial coefficients

@@ -19,8 +19,9 @@ cte​t+1​​=f(x​t​​)−y​t​​+(v​t​​∗sin(eψ​t​​)�
 
 eψ​t+1​​=eψ​t​​+​L​f​​​​v​t​​​​∗δ​t​​∗dt
 
+To plot the reference line, subtract all the waypoints from the vehicle's current position. This helps in plotting a polynomial to the waypoints by bringing the vehicles cordinates at the origin with zero orientation angle. This would ensure car stays in the same horizonal line as the reference line.
 
-For this project, actuators are predicted for 1 second in future. Horizon of 1 second is covered in N = 10 Iterations with each iteration predicting control inputs for next 100ms(dt). Any value lower than dt = 0.1 seconds was leading to car oscillating about the center of the road. This could be because the track is changing faster, and actuators predicted at an interval of dt < 0.1 was not sufficiently changed to meet the required steering and throttle value.
+For this project, the actuators are predicted for 1 second in future. Horizon of 1 second is covered in N = 10 iterations with each iteration predicting control inputs for the next 100ms(dt). Any smaller value of dt gives better accuracy but will require larger value of N for the horizon of 1 second. Increase in N would lead to larger computational time which effectively increase the latency. Hence the choice of N=10 and dt=0.1 second.
 
 Actuators constraint is set to -25 to +25 for steering angle and -1 to +1 for throttle.
 
@@ -51,4 +52,5 @@ To factor in real-world latency main function sleeps for 100ms before sending co
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./mpc`.
+
 
